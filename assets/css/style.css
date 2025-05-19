@@ -1,0 +1,66 @@
+
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.welcome-alert {
+    max-width: 600px;
+    border-radius: 15px;
+    /*box shadow warna biru*/
+    box-shadow: 0 10px 30px rgba(0, 0, 0.1, 0);
+    animation: fadeInDown 1s ease-in-out;
+    border-left: 5px solid #0a53d9;
+}
+
+.welcome-icon-alert {
+    font-size: 2.5rem;
+    color: #198754;
+    animation: pulse 2s infinite;
+}
+
+.arabic-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.translation {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.close-btn {
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+}
