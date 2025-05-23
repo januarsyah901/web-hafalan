@@ -1,29 +1,33 @@
 <?php
 global $pdo;
-
-
-// hafalan.php
-session_start();
-require_once 'env/config.php'; // file ini berisi koneksi ke database menggunakan $pdo
-
-// Ambil semua data setoran dari database
-$stmt = $pdo->query("    SELECT s.nama, k.nama_kelas FROM santri AS s JOIN kelas AS k ON s.kelas_id = k.id ORDER BY k.nama_kelas DESC");
-$santri = $stmt->fetchAll();
-//var_dump($santri);
+require_once 'handler/SantriHandler.php'
 ?>
     <!-- include header -->
 <?php include_once 'partials/layouts/header.php' ?>
 
     <!-- Navigation -->
-<?php include_once 'partials/nav.php'?>
+<?php include_once 'partials/nav.php' ?>
     <!-- Main Content -->
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Setoran Hafalan Terbaru</h5>
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center" style="border-bottom: none;">
+                        <h1 class="h3">Data seluruh santri</h1>
                         <a href="dashboard.php" class="btn btn-sm btn-outline-primary">Kembali Ke Dashboard</a>
+                    </div>
+                    <div class=" m-4">
+                        <div class="card-body">
+                            <form action="" method="GET" class="mb-0">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control form-control-lg"
+                                           placeholder="Cari nama santri..."
+                                           value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                                    <button class="btn btn-primary" type="submit">Cari</button>
+                                </div>
+                                <div class="form-text">Masukkan nama santri untuk mencari data santri</div>
+                            </form>
+                        </div>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -32,15 +36,20 @@ $santri = $stmt->fetchAll();
                                 <tr>
                                     <th>Nama Santri</th>
                                     <th>Kelas</th>
+                                    <th>Tempat Lahir</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Alamat</th>
+                                    <th>Orang Tua</th>
+                                    <th>No Telp</th>
+                                    <th>Tanggal Masuk</th>
+                                    <th>setatus</th>
+                                    <th>catatan</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach ($santri as $s) : ?>
-                                    <tr>
-                                        <td><?php echo htmlspecialchars($s['nama']); ?></td>
-                                        <td><?php echo htmlspecialchars($s['nama_kelas']); ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
+                                <?php include_once 'handler/SearchAndShowSantriHandler.php'; ?>
+
                                 </tbody>
                             </table>
                         </div>

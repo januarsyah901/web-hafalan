@@ -1,5 +1,4 @@
 <?php
-session_start();
 global $pdo;
 require_once 'env/config.php';
 require_once 'handler/AuthGuardHandler.php';

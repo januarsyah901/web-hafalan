@@ -64,3 +64,14 @@
 .close-btn:hover {
     transform: rotate(90deg);
 }
+
+/* Modal Tambah Hafalan */
+#santriDropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+#santriSearch {
+    margin: 5px;
+}

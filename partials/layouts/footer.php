@@ -1,7 +1,7 @@
 <footer class="bg-white mt-auto py-3 border-top">
     <div class="container-fluid">
         <div class="text-center text-muted">
-            &copy; 2025 Sistem Manajemen Tahfidz | <a href="#" class="text-decoration-none">Panduan Penggunaan</a>
+            &copy; 2025 Sistem Manajemen Tahfidz | <a href="#" class="text-decoration-none">Ga Ada Panduan Penggunaan</a>
         </div>
     </div>
 </footer>

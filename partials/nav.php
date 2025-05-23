@@ -27,12 +27,10 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle <?= $currentPage == 'profil.php' ? 'active' : '' ?>" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
+                    <a class="nav-link active dropdown-toggle <?= $currentPage == 'profil.php' ? 'active' : '' ?>" href="#" id="userMenu" role="button" data-bs-toggle="dropdown">
                         <i class="fas fa-user me-1"></i> <?= $_SESSION['nama'] ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="profil.php"><i class="fas fa-id-card me-2"></i>Profil</a></li>
-                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="handler/LogoutHandler.php"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
                     </ul>
                 </li>

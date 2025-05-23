@@ -41,9 +41,6 @@ include_once 'handler/LoginHandler.php';
                             <div class="input-group">
                                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
                                 <input type="password" class="form-control" id="password" name="password" required>
-<!--                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">-->
-<!--                                    <i class="fas fa-eye"></i>-->
-<!--                                </button>-->
                             </div>
                         </div>
                         <div class="form-check mb-3">
