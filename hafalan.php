@@ -92,9 +92,9 @@ $setoranTerbaru = $stmt->fetchAll();
                                             <td>
                                                 <span class="fw-bold text-warning"><?php echo htmlspecialchars($setoran['skor']); ?></span>
                                             </td>
-                                        <?php elseif ($setoran['status'] == 'Gagal') : ?>
+                                        <?php elseif ($setoran['status'] == 'Proses') : ?>
                                             <td>
-                                                <span class="fw-bold text-danger"><?php echo htmlspecialchars($setoran['skor']); ?></span>
+                                                <span class="fw-bold text-disable"><?php echo htmlspecialchars($setoran['skor']); ?></span>
                                             </td>
                                         <?php else : ?>
                                             <td><?php echo htmlspecialchars($setoran['skor']); ?></td>
@@ -109,9 +109,9 @@ $setoranTerbaru = $stmt->fetchAll();
                                             <td>
                                                 <span class="badge bg-warning text-dark"><?php echo htmlspecialchars($setoran['status']); ?></span>
                                             </td>
-                                        <?php elseif ($setoran['status'] == 'Gagal') : ?>
+                                        <?php elseif ($setoran['status'] == 'Proses') : ?>
                                             <td>
-                                                <span class="badge bg-danger"><?php echo htmlspecialchars($setoran['status']); ?></span>
+                                                <span class="badge bg-primary"><?php echo htmlspecialchars($setoran['status']); ?></span>
                                             </td>
                                         <?php else : ?>
                                             <td><?php echo htmlspecialchars($setoran['status']); ?></td>

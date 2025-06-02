@@ -9,7 +9,7 @@ include_once 'handler/AddHafalanHandler.php'?>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="formInputHafalan">
+                <form id="formInputHafalan" method="POST">
                     <div class="row mb-3">
                         <div class="col-md-6 mb-3">
                             <label for="santriDropdown" class="form-label">Santri</label>
@@ -36,10 +36,10 @@ include_once 'handler/AddHafalanHandler.php'?>
                         </div>
                         <div class="col-md-6">
                             <label for="jenisHafalan" class="form-label">Jenis Hafalan</label>
-                            <select class="form-select" id="jenisHafalan" required>
+                            <select class="form-select" id="jenisHafalan" name="jenis_hafalan" required>
                                 <option value="" selected disabled>Pilih Jenis</option>
-                                <option value="ziyadah">Ziyadah (Hafalan Baru)</option>
-                                <option value="murajaah">Murajaah (Mengulang)</option>
+                                <option value="Ziyadah">Ziyadah (Hafalan Baru)</option>
+                                <option value="Murajaah">Murajaah (Mengulang)</option>
                             </select>
                         </div>
                     </div>
@@ -70,21 +70,17 @@ include_once 'handler/AddHafalanHandler.php'?>
                         <div class="col-md-6">
                             <label for="ayatHafalan" class="form-label">Ayat</label>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="ayatMulai" placeholder="Dari" required>
+                                <input type="number" class="form-control" id="ayatMulai" name="ayat_mulai" placeholder="Dari" required>
                                 <span class="input-group-text">-</span>
-                                <input type="number" class="form-control" id="ayatAkhir" placeholder="Sampai" required>
+                                <input type="number" class="form-control" id="ayatAkhir" name="ayat_akhir" placeholder="Sampai" required>
+                                <input type="hidden" name="ayat" id="ayatValue">
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="skorHafalan" class="form-label">Skor (0-100)</label>
-                            <input type="number" class="form-control" id="skorHafalan" min="0" max="100" required>
-                        </div>
-                    </div>
+
                     <div class="mb-3">
                         <label for="catatanHafalan" class="form-label">Catatan (Opsional)</label>
-                        <textarea class="form-control" id="catatanHafalan" rows="3"></textarea>
+                        <textarea class="form-control" id="catatanHafalan" name="catatan" rows="3"></textarea>
                     </div>
                 </form>
             </div>

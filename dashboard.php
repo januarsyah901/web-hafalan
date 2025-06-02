@@ -1,6 +1,10 @@
 <?php
 // include DashboardHandler.php
 require_once 'handler/DashboardHandler.php';
+
+// Include addHafalan.php at the beginning to handle headers properly
+include_once 'addHafalan.php';
+
 global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $setoranTerbaru, $totalData, $totalPages, $page, $pdo;
 //var_dump($hafalanMingguIni);
 ?>
@@ -160,6 +164,32 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
 
     <!-- Modal -->
 <?php include_once 'addHafalan.php' ?>
+
+    <!-- Error Message Handler -->
+<?php if (!empty($error_message)): ?>
+    <div class="alert alert-danger error-alert alert-dismissible fade show" role="alert">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-exclamation-triangle alert-icon"></i>
+            <div>
+                <h5 class="alert-heading mb-1">Terjadi Kesalahan!</h5>
+                <p class="mb-0"><?= htmlspecialchars($error_message) ?></p>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
+    <!-- Sukses Message Handler -->
+<?php if (!empty($success_message)): ?>
+    <div class="alert alert-success error-alert alert-dismissible fade show" role="alert">
+        <div class="d-flex align-items-center">
+            <div>
+                <h5 class="alert-heading mb-1">Santri Berhasil Ditambahkan!</h5>
+                <p class="mb-0"><?= htmlspecialchars($success_message) ?></p>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php endif; ?>
 
     <!-- Footer -->
 <?php include_once 'partials/layouts/footer.php'; ?>

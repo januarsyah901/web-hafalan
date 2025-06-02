@@ -22,7 +22,7 @@ include_once 'handler/AddSantriHandler.php' ?>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="formSantri" method="post">
+                        <form id="formSantri" method="post" enctype="multipart/form-data">
                             <div class="row mb-3">
                                 <label for="nama" class="col-sm-3 col-form-label">Nama Lengkap <span
                                             class="text-danger">*</span></label>
@@ -126,6 +126,11 @@ include_once 'handler/AddSantriHandler.php' ?>
                                 <div class="col-sm-9">
                                     <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
                                 </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto Santri</label>
+                                <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg,image/png,image/jpg">
+                                <div class="form-text">Upload foto santri (Max: 2MB, Format: JPG, JPEG, PNG)</div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-9 offset-sm-3">

@@ -35,7 +35,8 @@ function tampilkanSetoranRow($row): void
     $badgeStatus = match ($status) {
         'Lulus' => "<span class='badge bg-success'>$statusText</span>",
         'Perlu diulang' => "<span class='badge bg-warning text-dark'>$statusText</span>",
-        'Gagal' => "<span class='badge bg-danger'>$statusText</span>",
+        'Proses' => "<span class='badge bg-primary'>$statusText</span>",
+
         default => $statusText
     };
     echo "<td>$badgeStatus</td>";

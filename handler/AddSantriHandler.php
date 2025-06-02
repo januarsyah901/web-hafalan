@@ -7,8 +7,21 @@ require_once 'handler/AuthGuardHandler.php';
 $stmt = $pdo->query("SELECT id, nama_kelas FROM kelas");
 $kelasOptions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Inisialisasi variabel
+$errors = [];
+$error_message = '';
+$success_message = '';
+$upload_dir = __DIR__ . '/../uploads/foto/';
+$foto_path = null;
+
+// Buat direktori upload jika belum ada
+if (!file_exists($upload_dir)) {
+    mkdir($upload_dir, 0755, true);
+}
+
 // Proses submit form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $nama = $_POST['nama'] ?? '';
     $tempat_lahir = $_POST['tempat_lahir'] ?? '';
     $tanggal_lahir = $_POST['tanggal_lahir'] ?? '';
@@ -22,9 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $catatan = $_POST['catatan'] ?? '';
 
 
-    $errors = [];
-    $error_message = '';
-
     // Validasi format tanggal
     if (!empty($tanggal_lahir) && !DateTime::createFromFormat('Y-m-d', $tanggal_lahir)) {
         $errors[] = "Format tanggal lahir tidak valid";
@@ -33,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($tanggal_masuk) && !DateTime::createFromFormat('Y-m-d', $tanggal_masuk)) {
         $errors[] = "Format tanggal masuk tidak valid";
     }
-
 
     if (empty($errors)) {
         try {
