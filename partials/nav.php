@@ -1,7 +1,7 @@
 <?php include_once 'handler/NavHandler.php'; ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="dashboard.php">
+        <a class="navbar-brand" href="index.php">
             <i class="fas fa-book-quran me-2"></i>Sistem Manajemen Tahfidz
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link <?= $currentPage == 'dashboard.php' ? 'active' : '' ?>" href="dashboard.php">
+                    <a class="nav-link <?= $currentPage == 'index.php' ? 'active' : '' ?>" href="index.php">
                         <i class="fas fa-home me-1"></i> Dashboard
                     </a>
                 </li>

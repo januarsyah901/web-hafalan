@@ -1,8 +1,6 @@
 <?php
 global $pdo;
-require_once 'env/config.php';
-require_once 'handler/AuthGuardHandler.php';
-
+require_once __DIR__ . '/../env/config.php';
 // Pagination
 $limit = 10; // data per halaman
 $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;

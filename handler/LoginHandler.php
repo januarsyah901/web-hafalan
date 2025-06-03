@@ -1,7 +1,7 @@
 <?php
 session_start();
 global $pdo;
-include 'env/config.php';
+require_once __DIR__ . '/../env/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
@@ -25,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['username'] = $user['username'];
         $_SESSION['nama'] = $user['nama'];
 
-        header("Location: dashboard.php");
-        echo "<script>window.location.href='dashboard.php';</script>";
+        header("Location: index.php");
     } else {
         echo "<script>alert('Username atau password salah!');</script>";
     }

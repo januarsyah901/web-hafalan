@@ -4,7 +4,7 @@ global $pdo;
 
 session_start();
 
-require_once 'env/config.php'; // file ini berisi koneksi ke database menggunakan $pdo
+require_once __DIR__ . '/env/config.php';
 
 // Ambil semua data setoran dari database
 $stmt = $pdo->query("    SELECT s.tanggal, santri.nama AS nama_santri, kelas.nama_kelas, 
@@ -29,7 +29,7 @@ $setoranTerbaru = $stmt->fetchAll();
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Setoran Hafalan Terbaru</h5>
-                        <a href="dashboard.php" class="btn btn-sm btn-outline-primary">Kembali Ke Dashboard</a>
+                        <a href="index.php" class="btn btn-sm btn-outline-primary">Kembali Ke Dashboard</a>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
@@ -48,20 +48,6 @@ $setoranTerbaru = $stmt->fetchAll();
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <!--                            <tr>-->
-                                <!--                                <td>15 Mei 2025</td>-->
-                                <!--                                <td>Umar Abdullah</td>-->
-                                <!--                                <td>IX-A</td>-->
-                                <!--                                <td>Ar-Rahman</td>-->
-                                <!--                                <td>1-30</td>-->
-                                <!--                                <td><span class="badge bg-warning text-dark">Murajaah</span></td>-->
-                                <!--                                <td><span class="fw-bold text-danger">65</span></td>-->
-                                <!--                                <td><span class="badge bg-danger">Gagal</span></td>-->
-                                <!--                                <td>-->
-                                <!--                                    <a href="#" class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-edit"></i></a>-->
-                                <!--                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="fas fa-eye"></i></a>-->
-                                <!--                                </td>-->
-                                <!--                            </tr>-->
                                 <?php foreach ($setoranTerbaru as $setoran) : ?>
                                     <tr>
                                         <td><?php echo date('d M Y', strtotime($setoran['tanggal'])); ?></td>

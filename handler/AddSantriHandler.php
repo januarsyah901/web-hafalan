@@ -11,13 +11,6 @@ $kelasOptions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $errors = [];
 $error_message = '';
 $success_message = '';
-$upload_dir = __DIR__ . '/../uploads/foto/';
-$foto_path = null;
-
-// Buat direktori upload jika belum ada
-if (!file_exists($upload_dir)) {
-    mkdir($upload_dir, 0755, true);
-}
 
 // Proses submit form
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -34,14 +27,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'] ?? '';
     $catatan = $_POST['catatan'] ?? '';
 
-
-    // Validasi format tanggal
-    if (!empty($tanggal_lahir) && !DateTime::createFromFormat('Y-m-d', $tanggal_lahir)) {
-        $errors[] = "Format tanggal lahir tidak valid";
+// Validasi form input
+    if (empty($nama)) {
+        $errors[] = "Nama tidak boleh kosong";
+    } elseif (!preg_match("/^[a-zA-Z\s'.]+$/", $nama)) {
+        $errors[] = "Nama hanya boleh berisi huruf, spasi, petik, dan titik";
     }
 
-    if (!empty($tanggal_masuk) && !DateTime::createFromFormat('Y-m-d', $tanggal_masuk)) {
-        $errors[] = "Format tanggal masuk tidak valid";
+    if (empty($tempat_lahir)) {
+        $errors[] = "Tempat lahir tidak boleh kosong";
+    } elseif (!preg_match("/^[a-zA-Z\s,.]+$/", $tempat_lahir)) {
+        $errors[] = "Tempat lahir hanya boleh berisi huruf, spasi, koma, dan titik";
+    }
+
+    if (empty($tanggal_lahir)) {
+        $errors[] = "Tanggal lahir tidak boleh kosong";
+    } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $tanggal_lahir)) {
+        $errors[] = "Format tanggal lahir harus YYYY-MM-DD";
+    }
+
+    if (empty($jenis_kelamin)) {
+        $errors[] = "Jenis kelamin harus dipilih";
+    } elseif (!in_array($jenis_kelamin, ['L', 'P'])) {
+        $errors[] = "Jenis kelamin tidak valid";
+    }
+
+    if (empty($kelas_id)) {
+        $errors[] = "Kelas harus dipilih";
+    } elseif (!is_numeric($kelas_id)) {
+        $errors[] = "ID kelas tidak valid";
+    }
+
+    if (empty($alamat)) {
+        $errors[] = "Alamat tidak boleh kosong";
+    }
+
+    if (empty($nama_ortu)) {
+        $errors[] = "Nama orang tua tidak boleh kosong";
+    } elseif (!preg_match("/^[a-zA-Z\s'.]+$/", $nama_ortu)) {
+        $errors[] = "Nama orang tua hanya boleh berisi huruf, spasi, petik, dan titik";
+    }
+
+    if (empty($no_telp)) {
+        $errors[] = "Nomor telepon tidak boleh kosong";
+    } elseif (!preg_match("/^[0-9+\-()]{8,15}$/", $no_telp)) {
+        $errors[] = "Format nomor telepon tidak valid";
+    }
+
+    if (empty($tanggal_masuk)) {
+        $errors[] = "Tanggal masuk tidak boleh kosong";
+    } elseif (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $tanggal_masuk)) {
+        $errors[] = "Format tanggal masuk harus YYYY-MM-DD";
+    }
+
+    if (empty($status)) {
+        $errors[] = "Status tidak boleh kosong";
+    } elseif (!in_array($status, ['Aktif', 'Tidak Aktif', 'Alumni'])) {
+        $errors[] = "Status tidak valid";
     }
 
     if (empty($errors)) {

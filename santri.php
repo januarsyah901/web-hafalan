@@ -7,6 +7,7 @@ require_once 'handler/SantriHandler.php'
 
     <!-- Navigation -->
 <?php include_once 'partials/nav.php' ?>
+
     <!-- Main Content -->
     <div class="container-fluid py-4">
         <div class="row">
@@ -14,7 +15,7 @@ require_once 'handler/SantriHandler.php'
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center" style="border-bottom: none;">
                         <h1 class="h3">Data seluruh santri</h1>
-                        <a href="dashboard.php" class="btn btn-sm btn-outline-primary">Kembali Ke Dashboard</a>
+                        <a href="index.php" class="btn btn-sm btn-outline-primary">Kembali Ke Dashboard</a>
                     </div>
                     <div class=" m-4">
                         <div class="card-body">
@@ -58,6 +59,6 @@ require_once 'handler/SantriHandler.php'
             </div>
         </div>
     </div>
-    <!-- Footer -->
+
     <!-- Footer -->
 <?php include_once 'partials/layouts/footer.php'; ?>

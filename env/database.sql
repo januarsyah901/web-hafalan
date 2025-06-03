@@ -42,6 +42,7 @@ CREATE TABLE santri
     tanggal_masuk DATE                                NOT NULL,
     status        ENUM ('aktif', 'nonaktif') NOT NULL DEFAULT 'aktif',
     catatan       TEXT,
+    foto VARCHAR(255) NULL,
     FOREIGN KEY (kelas_id) REFERENCES kelas (id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -292,7 +293,6 @@ VALUES
     ('2025-06-02', 11, 14, '3-7', 'Murajaah', 76, 'Perlu diulang');
 
 
-
 -- Query
 SELECT s.tanggal,
        san.nama       AS nama_santri,
@@ -312,7 +312,7 @@ SELECT COUNT(*) AS hafalan_minggu_ini
 FROM setoran
 WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1);
 
-# delete semua data dari semua table
+# delete semua data dari semua  table
 DELETE
 FROM setoran;
 DELETE

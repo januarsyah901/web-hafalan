@@ -16,7 +16,7 @@ include_once 'handler/AddSantriHandler.php' ?>
                     <div class="card-header bg-white">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="mb-0">Tambah Data Santri Baru</h5>
-                            <a href="dashboard.php" class="btn btn-sm btn-outline-secondary">
+                            <a href="index.php" class="btn btn-sm btn-outline-secondary">
                                 <i class="fas fa-arrow-left me-1"></i> Kembali
                             </a>
                         </div>

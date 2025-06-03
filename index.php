@@ -1,6 +1,7 @@
 <?php
 // include DashboardHandler.php
 require_once 'handler/DashboardHandler.php';
+require_once 'handler/AuthGuardHandler.php';
 
 // Include addHafalan.php at the beginning to handle headers properly
 include_once 'addHafalan.php';
@@ -18,18 +19,16 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
 
     <!-- Main Content -->
     <div class="container-fluid py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 ">
-            <h1 class="h3">Dashboard</h1>
-            <div class="d-flex justify-content-between align-items-center mb-4">
-                <div>
-                    <button type="button" class="btn btn-success me-2" data-bs-toggle="modal"
-                            data-bs-target="#inputHafalanModal">
-                        <i class="bi bi-journal-plus"></i> Input Hafalan
-                    </button>
-                    <a type="button" class="btn btn-primary" href="addSantri.php">
-                        <i class="bi bi-person-plus"></i> Tambah Santri
-                    </a>
-                </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
+            <h1 class="h3 mb-3 mb-md-0">Dashboard</h1>
+            <div>
+                <a type="button" class="btn btn-success " data-bs-toggle="modal"
+                        data-bs-target="#inputHafalanModal">
+                    <i class="bi bi-journal-plus"></i> Input Hafalan
+                </a>
+                <a type="button" class="btn btn-primary" href="addSantri.php">
+                    <i class="bi bi-person-plus"></i> Tambah Santri
+                </a>
             </div>
         </div>
 
