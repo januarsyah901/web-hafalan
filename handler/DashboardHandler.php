@@ -43,7 +43,7 @@ $murajaahBulanIni = $stmt->fetchColumn();
 
 // Fetch setoran hafalan terbaru
 $stmt = $pdo->prepare("
-    SELECT s.tanggal, santri.nama AS nama_santri, kelas.nama_kelas, 
+    SELECT s.id AS setoran_id, s.tanggal, santri.id AS santri_id, santri.nama AS nama_santri, kelas.nama_kelas, 
            surah.nama_surah, s.ayat, s.jenis, s.skor, s.status
     FROM setoran s
     JOIN santri ON s.santri_id = santri.id

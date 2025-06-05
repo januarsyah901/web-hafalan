@@ -87,7 +87,6 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
                 </div>
             </div>
         </div>
-
         <!-- Search Bar -->
         <div class=" m-4">
             <div class="card-body">
@@ -164,6 +163,10 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
     <!-- Modal -->
 <?php include_once 'addHafalan.php' ?>
 
+    <!-- Modal Edit/Preview Hafalan -->
+<?php //include_once 'editHafalanModal.php' ?>
+<?php //include_once 'showHafalanModal.php' ?>
+
     <!-- Error Message Handler -->
 <?php if (!empty($error_message)): ?>
     <div class="alert alert-danger error-alert alert-dismissible fade show" role="alert">
@@ -177,6 +180,7 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 <?php endif; ?>
+
     <!-- Sukses Message Handler -->
 <?php if (!empty($success_message)): ?>
     <div class="alert alert-success error-alert alert-dismissible fade show" role="alert">

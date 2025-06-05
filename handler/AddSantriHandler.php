@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['status'] ?? '';
     $catatan = $_POST['catatan'] ?? '';
 
-// Validasi form input
+    // Validasi form input
     if (empty($nama)) {
         $errors[] = "Nama tidak boleh kosong";
     } elseif (!preg_match("/^[a-zA-Z\s'.]+$/", $nama)) {

@@ -1,23 +1,4 @@
-// // Show the alert immediately when page loads
-// document.addEventListener('DOMContentLoaded', function() {
-// setTimeout(function() {
-//     const alertElement = document.querySelector('.welcome-alert');
-//     if (alertElement) {
-//         let opacity = 1; // Initial opacity
-//         const fadeOut = setInterval(function() {
-//             if (opacity <= 0) {
-//                 clearInterval(fadeOut);
-//                 alertElement.remove(); // Remove the element from the DOM
-//             } else {
-//                 opacity -= 0.1; // Decrease opacity
-//                 alertElement.style.opacity = opacity;
-//             }
-//         }, 70); // Adjust the interval for smoother or faster fading
-//     }
-// }, 5000);
-//
-// });
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize searchable dropdowns
     initSearchableDropdown('santri');
     initSearchableDropdown('surah');
@@ -33,7 +14,7 @@ function initSearchableDropdown(type) {
     const dropdownList = document.getElementById(type + 'List');
 
     // Search functionality
-    searchInput.addEventListener('input', function() {
+    searchInput.addEventListener('input', function () {
         const searchTerm = this.value.toLowerCase();
         let hasResults = false;
 
@@ -59,7 +40,7 @@ function initSearchableDropdown(type) {
 
     // Item selection
     dropdownItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             const value = this.getAttribute('data-value');
             const text = this.textContent;
 
@@ -88,12 +69,12 @@ function initSearchableDropdown(type) {
     });
 
     // Clear search when dropdown is opened
-    document.getElementById(type + 'Dropdown').addEventListener('shown.bs.dropdown', function() {
+    document.getElementById(type + 'Dropdown').addEventListener('shown.bs.dropdown', function () {
         searchInput.focus();
     });
 
     // Prevent dropdown from closing when clicking on search input
-    searchInput.addEventListener('click', function(e) {
+    searchInput.addEventListener('click', function (e) {
         e.stopPropagation();
     });
 }
@@ -112,18 +93,16 @@ function showSelected() {
 }
 
 
-
-
-    function prepareAyatValue() {
+function prepareAyatValue() {
     const ayatMulai = document.getElementById('ayatMulai').value;
     const ayatAkhir = document.getElementById('ayatAkhir').value;
     document.getElementById('ayatValue').value = `${ayatMulai}-${ayatAkhir}`;
 
     // Prepare ayat value for submission
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('formInputHafalan');
         if (form) {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 prepareAyatValue(); // Call the function to set the hidden ayat field
             });
         }

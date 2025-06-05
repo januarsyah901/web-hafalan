@@ -3,6 +3,7 @@ global $setoranTerbaru, $pdo;
 
 function tampilkanSetoranRow($row): void
 {
+
     echo "<tr>";
     echo "<td>" . date('d M Y', strtotime($row['tanggal'])) . "</td>";
     echo "<td>" . htmlspecialchars($row['nama_santri']) . "</td>";
@@ -41,12 +42,28 @@ function tampilkanSetoranRow($row): void
     };
     echo "<td>$badgeStatus</td>";
 
-    // Aksi
-    echo "<td>
-            <a href='#' class='btn btn-sm btn-outline-primary me-1'><i class='fas fa-edit'></i></a>
-            <a href='#' class='btn btn-sm btn-outline-secondary'><i class='fas fa-eye'></i></a>
-          </td>";
-    echo "</tr>";
+
+
+    // Aksi Modal
+    echo "<td>";
+//    echo '<a id="editHafalan" type="button" class="btn btn-sm btn-outline-primary me-1" data-bs-toggle="modal"
+//           data-bs-target="#editHafalanModal" data-id="' . $row['setoran_id'] . '" >
+//            <i class="fas fa-edit"></i>
+//        </a>';
+//    echo '<a id="showHafalan" type="button" class="btn btn-sm btn-outline-secondary me-1" data-bs-toggle="modal"
+//       data-bs-target="#showHafalanModal" data-id="' . $row['setoran_id'] . '" >
+//        <i class="fas fa-eye"></i>
+//    </a>';
+
+    // Aksi Halaman
+echo '<a href="editHafalan.php?id=' . $row['setoran_id'] . '" type="button" class="btn btn-sm btn-outline-primary me-1">
+        <i class="fas fa-edit"></i> 
+    </a>';
+echo '<a href="showHafalan.php?id=' . $row['setoran_id'] . '" type="button" class="btn btn-sm btn-outline-secondary me-1">
+    <i class="fas fa-eye"></i> 
+</a>';
+echo "</td>";
+echo "</tr>";
 }
 
 if (isset($_GET['search']) && trim($_GET['search']) !== '') {

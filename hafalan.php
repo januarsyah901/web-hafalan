@@ -2,19 +2,35 @@
 // include DashboardHandler.php
 global $pdo;
 
-session_start();
+require_once 'handler/AuthGuardHandler.php';
 
 require_once __DIR__ . '/env/config.php';
+// Pagination
+$limit = 20; // data per halaman
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+$offset = ($page - 1) * $limit;
 
-// Ambil semua data setoran dari database
-$stmt = $pdo->query("    SELECT s.tanggal, santri.nama AS nama_santri, kelas.nama_kelas, 
+// Fetch setoran hafalan terbaru dengan pagination
+$stmt = $pdo->prepare("
+    SELECT s.id AS setoran_id, s.tanggal, santri.id AS santri_id, santri.nama AS nama_santri, kelas.nama_kelas, 
            surah.nama_surah, s.ayat, s.jenis, s.skor, s.status
     FROM setoran s
     JOIN santri ON s.santri_id = santri.id
     JOIN kelas ON santri.kelas_id = kelas.id
     JOIN surah ON s.surah_id = surah.id
-    ORDER BY s.tanggal DESC");
-$setoranTerbaru = $stmt->fetchAll();
+    ORDER BY s.tanggal DESC
+    LIMIT :limit OFFSET :offset");
+$stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+$stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+$stmt->execute();
+$setoranTerbaru = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Hitung total data
+$totalStmt = $pdo->query("SELECT COUNT(*) FROM setoran");
+$totalData = $totalStmt->fetchColumn();
+$totalPages = ceil($totalData / $limit);
+
+
 
 ?>
     <!-- include header -->
@@ -118,6 +134,27 @@ $setoranTerbaru = $stmt->fetchAll();
             </div>
         </div>
     </div>
+    <!-- Navigation Page -->
+    <nav class="pt-3 d-flex justify-content-center" aria-label="...">
+        <ul class="pagination">
+            <!-- Tombol Previous -->
+            <li class="page-item <?php if ($page <= 1) echo 'disabled'; ?>">
+                <a class="page-link" href="?page=<?php echo $page - 1; ?>">&laquo;</a>
+            </li>
+
+            <!-- Loop Nomor Halaman -->
+            <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                <li class="page-item <?php if ($page == $i) echo 'active'; ?>">
+                    <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                </li>
+            <?php endfor; ?>
+
+            <!-- Tombol Next -->
+            <li class="page-item <?php if ($page >= $totalPages) echo 'disabled'; ?>">
+                <a class="page-link" href="?page=<?php echo $page + 1; ?>">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
     <!-- Footer -->
     <!-- Footer -->
 <?php include_once 'partials/layouts/footer.php'; ?>
