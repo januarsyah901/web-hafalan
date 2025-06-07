@@ -1,5 +1,5 @@
 <?php
-global $pdo;
+global $pdo, $hafalan;
 include_once 'handler/editHafalanHandler.php';
 ?>
 
@@ -10,7 +10,7 @@ include_once 'handler/editHafalanHandler.php';
     <div class="container my-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>Edit Hafalan</h2>
-            <a href="index.php" class="btn btn-secondary">
+            <a href="showHafalan.php?id=<?= $hafalan['id'] ?>" class="btn btn-secondary">
                 <i class="fas fa-arrow-left me-1"></i> Kembali
             </a>
         </div>
@@ -90,30 +90,38 @@ include_once 'handler/editHafalanHandler.php';
                 </div>
 
                 <div class="col-md-4">
-                    <label class="form-label">Skor</label>
-                    <input type="text" class="form-control" value="<?= htmlspecialchars($hafalan['skor']) ?>" disabled>
+                    <label for="skor" class="form-label">Skor</label>
+                    <input type="text" class="form-control" id="skor" name="skor"
+                           value="<?= htmlspecialchars($hafalan['skor']) ?>" required>
                 </div>
 
                 <div class="col-md-4">
-                    <label class="form-label">Status</label>
-                    <select class="form-select" disabled>
-                        <option <?= ($hafalan['status'] == 'Lulus') ? 'selected' : '' ?>>Lulus</option>
-                        <option <?= ($hafalan['status'] == 'Perlu diulang') ? 'selected' : '' ?>>Perlu diulang</option>
-                        <option <?= ($hafalan['status'] == 'Gagal') ? 'selected' : '' ?>>Gagal</option>
-                        <option <?= ($hafalan['status'] == 'Proses') ? 'selected' : '' ?>>Proses</option>
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status" required>
+                        <option value="Lulus" <?= ($hafalan['status'] == 'Lulus') ? 'selected' : '' ?>>Lulus</option>
+                        <option value="Perlu diulang" <?= ($hafalan['status'] == 'Perlu diulang') ? 'selected' : '' ?>>
+                            Perlu diulang
+                        </option>
+                        <option value="Gagal" <?= ($hafalan['status'] == 'Gagal') ? 'selected' : '' ?>>Gagal</option>
+                        <option value="Proses" <?= ($hafalan['status'] == 'Proses') ? 'selected' : '' ?>>Proses</option>
                     </select>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label class="form-label">Catatan</label>
-                <textarea class="form-control" rows="3" disabled><?= htmlspecialchars($hafalan['catatan'] ?? '') ?></textarea>
+                <label for="catatan" class="form-label">Catatan</label>
+                <textarea class="form-control" id="catatan" name="catatan"
+                          rows="3"><?= htmlspecialchars($hafalan['catatan']) ?? '' ?></textarea>
             </div>
 
             <div class="d-flex justify-content-end">
-                <a href="editHafalan.php?id=<?= $hafalan['id'] ?>" class="btn btn-primary">
-                    <i class="fas fa-edit me-1"></i> Edit
-                </a>
+                <button type="button" class="btn btn-secondary me-2"
+                        onclick="window.location.href='showHafalan.php?id=<?= $hafalan['id'] ?>'">
+                    <i class="fas fa-times me-1"></i> Batal
+                </button>
+                <button type="submit" class="btn btn-primary" name="update_hafalan" form="formEditHafalan">
+                    <i class="fas fa-save me-1"></i> Simpan Perubahan
+                </button>
             </div>
         </form>
     </div>

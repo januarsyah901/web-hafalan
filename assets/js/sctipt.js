@@ -93,18 +93,4 @@ function showSelected() {
 }
 
 
-function prepareAyatValue() {
-    const ayatMulai = document.getElementById('ayatMulai').value;
-    const ayatAkhir = document.getElementById('ayatAkhir').value;
-    document.getElementById('ayatValue').value = `${ayatMulai}-${ayatAkhir}`;
 
-    // Prepare ayat value for submission
-    document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('formInputHafalan');
-        if (form) {
-            form.addEventListener('submit', function (e) {
-                prepareAyatValue(); // Call the function to set the hidden ayat field
-            });
-        }
-    });
-}

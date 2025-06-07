@@ -72,7 +72,7 @@ if (isset($_GET['search']) && trim($_GET['search']) !== '') {
     // Query pencarian
     $query = "
         SELECT s.tanggal, santri.nama AS nama_santri, kelas.nama_kelas, 
-               surah.nama_surah, s.ayat, s.jenis, s.skor, s.status
+               surah.nama_surah, s.ayat, s.jenis, s.skor, s.status, s.id AS setoran_id
         FROM setoran s
         JOIN santri ON s.santri_id = santri.id
         JOIN kelas ON santri.kelas_id = kelas.id
