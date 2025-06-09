@@ -1,6 +1,6 @@
 <?php
 global $pdo, $hafalan;
-include_once 'handler/editHafalanHandler.php';
+include_once 'handler/showHafalanHandler.php';
 ?>
 
 <?php include_once 'partials/layouts/header.php' ?>
@@ -35,7 +35,7 @@ include_once 'handler/editHafalanHandler.php';
 
                 <div class="col-md-6">
                     <label for="santri_id" class="form-label">Santri</label>
-                    <select class="form-select" name="santri_id" id="santri_id" disabled>
+                    <select class="form-select" name="santri_id_disabled" id="santri_id" disabled>
                         <option>
                             <?= htmlspecialchars($hafalan['nama_santri']) ?>
                             (<?= htmlspecialchars($hafalan['nama_kelas']) ?>)
@@ -118,8 +118,13 @@ include_once 'handler/editHafalanHandler.php';
                         onclick="window.location.href='showHafalan.php?id=<?= $hafalan['id'] ?>'">
                     <i class="fas fa-times me-1"></i> Batal
                 </button>
-                <button type="submit" class="btn btn-primary" name="update_hafalan" form="formEditHafalan">
-                    <i class="fas fa-save me-1"></i> Simpan Perubahan
+                <button type="submit" class="btn btn-danger me-2" name="delete_hafalan" value="1"
+                        onclick="return confirm('Apakah Anda yakin ingin menghapus hafalan ini?')">
+                    <i class="fas fa-trash me-1"></i> Hapus
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-1"></i>
+                    Submit
                 </button>
             </div>
         </form>

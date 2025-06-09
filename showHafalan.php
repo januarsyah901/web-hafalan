@@ -1,6 +1,6 @@
 <?php
 global $pdo;
-include_once 'handler/editHafalanHandler.php';
+include_once 'handler/showHafalanHandler.php';
 ?>
 
 <?php include_once 'partials/layouts/header.php' ?>
@@ -21,8 +21,6 @@ include_once 'handler/editHafalanHandler.php';
                 unset($_SESSION['error']); ?>
             </div>
         <?php endif; ?>
-
-        <form method="post" action="handler/editHafalanHandler.php" id="formEditHafalan">
             <input type="hidden" name="id" value="<?= $hafalan['id'] ?>">
 
             <div class="row mb-3">
@@ -114,7 +112,6 @@ include_once 'handler/editHafalanHandler.php';
                     <i class="fas fa-edit me-1"></i> Edit
                 </a>
             </div>
-        </form>
     </div>
 
 

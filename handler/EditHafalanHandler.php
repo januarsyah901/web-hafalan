@@ -3,42 +3,75 @@ global $pdo;
 require_once __DIR__ . '/../env/config.php';
 require_once __DIR__ . '/../handler/AuthGuardHandler.php';
 require_once __DIR__ . '/../handler/DashboardHandler.php';
+require_once __DIR__ . '/../handler/DeleteHafalanHandler.php';
 
-// Load existing hafalan data
-if (empty($_GET['id'])) {
-    echo "ID hafalan tidak ditemukan.";
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $_SESSION['error'] = 'Metode request tidak valid';
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    exit;
+}
+// Sanitasi input
+$id = filter_var($_POST['id'], FILTER_VALIDATE_INT);
+$skor = filter_var($_POST['skor'], FILTER_VALIDATE_INT, [
+    'options' => ['min_range' => 0, 'max_range' => 100]
+]);
+
+$status = in_array($_POST['status'], ['Lulus', 'Perlu diulang', 'Gagal', 'Proses'])
+    ? $_POST['status']
+    : 'Proses';
+$catatan = isset($_POST['catatan']) ? filter_var($_POST['catatan']) : null;
+
+
+if (isset($_POST['delete_hafalan'])) {
+    $id = $_POST['id'];
+
+    try {
+        $stmt = $pdo->prepare("DELETE FROM setoran WHERE id = ?");
+        $stmt->execute([$id]);
+
+        $_SESSION['success'] = "Hafalan berhasil dihapus.";
+        header("Location: ../index.php");
+        exit;
+    } catch (PDOException $e) {
+        $_SESSION['error'] = "Gagal menghapus hafalan: " . $e->getMessage();
+        echo 'script>alert("Gagal menghapus hafalan: ' . $e->getMessage() . '");</script>';
+        header("Location: ../editHafalan.php?id=$id");
+        exit;
+    }
+}
+
+// Validasi data
+if (!$id || $skor === false) {
+    $_SESSION['error'] = 'Data yang dimasukkan tidak valid';
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 }
 
-$id = $_GET['id'];
+try {
 
-// Query untuk mendapatkan detail hafalan
-$stmt = $pdo->prepare("
-    SELECT s.id, s.tanggal, s.jenis, s.ayat, s.catatan, s.skor, s.status, surah.id AS surah_id, 
-    santri.id AS santri_id, santri.nama AS nama_santri, 
-    kelas.id AS kelas_id, kelas.nama_kelas AS nama_kelas,
-    surah.id AS surah_id, surah.nama_surah
-    FROM setoran s
-    JOIN santri ON s.santri_id = santri.id
-    JOIN kelas ON santri.kelas_id = kelas.id 
-    JOIN surah ON s.surah_id = surah.id
-    WHERE s.id = :id
-");
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
-$hafalan = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $pdo->prepare("UPDATE setoran SET 
+        skor = :skor,
+        status = :status,
+        catatan = :catatan
+        WHERE id = :id");
 
-if (!$hafalan) {
-    echo "Data hafalan tidak ditemukan.";
+    // Bind parameter
+    $stmt->bindParam(':skor', $skor, PDO::PARAM_INT);
+    $stmt->bindParam(':status', $status, PDO::PARAM_STR);
+    $stmt->bindParam(':catatan', $catatan, PDO::PARAM_STR);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    // Eksekusi query
+    $stmt->execute();
+
+    // Redirect ke halaman detail dengan pesan sukses
+    $_SESSION['success'] = 'Data hafalan berhasil diperbarui';
+    header('Location: ../showHafalan.php?id=' . $id);
+    exit;
+
+} catch (PDOException $e) {
+    // Tangani error database
+    $_SESSION['error'] = 'Gagal memperbarui data hafalan: ' . $e->getMessage();
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
     exit;
 }
-
-// Get all surah for dropdown
-$stmtSurah = $pdo->query("
-    SELECT id, nama_surah
-    FROM surah
-    ORDER BY id
-");
-$surahList = $stmtSurah->fetchAll(PDO::FETCH_ASSOC);
-
-// Update hafalan
