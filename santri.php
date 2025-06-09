@@ -44,8 +44,8 @@ require_once 'handler/SantriHandler.php'
                                     <th>Orang Tua</th>
                                     <th>No Telp</th>
                                     <th>Tanggal Masuk</th>
-                                    <th>setatus</th>
-                                    <th>catatan</th>
+                                    <th>status</th>
+                                    <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>

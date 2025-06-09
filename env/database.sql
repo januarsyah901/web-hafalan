@@ -71,13 +71,12 @@ values ('Abdullah', 'abdul', '$2y$10$qxiRXNWOWalOvSX3NOEfN.xeMkKGlAgC7S6/.epbMCT
 
 -- Data kelas
 INSERT INTO kelas (nama_kelas)
-VALUES ('VII-A'),
-       ('VII-B'),
-       ('VIII-C'),
-       ('IX-A'),
-       ('IX-B'),
-       ('VIII-A'),
-       ('IX-c');
+VALUES ('XI-A'),
+         ('XI-B'),
+         ('XI-C'),
+         ('XII-A'),
+         ('XII-B'),
+         ('XII-C');
 
 -- Data surah
 INSERT INTO surah (nama_surah)

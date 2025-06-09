@@ -15,13 +15,11 @@ function tampilkanSantriRow($s): void
     echo "<td>" . htmlspecialchars($s['no_telp']) . "</td>";
     echo "<td>" . date('d M Y', strtotime($s['tanggal_masuk'])) . "</td>";
     echo "<td>" . htmlspecialchars($s['status']) . "</td>";
-    echo "<td>" . htmlspecialchars($s['catatan'] ?? '') . "</td>";
-
     // Aksi
-//    echo "<td>
-//            <a href='#' class='btn btn-sm btn-outline-primary me-1'><i class='fas fa-edit'></i></a>
-//            <a href='#' class='btn btn-sm btn-outline-secondary'><i class='fas fa-eye'></i></a>
-//          </td>";
+    echo "<td>";
+    echo '<a href="editHafalan.php?id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-edit"></i></a>';
+    echo '<a href="showHafalan.php?id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-secondary me-1"><i class="fas fa-eye"></i> </a>';
+    echo "</td>";
     echo "</tr>";
 }
 
