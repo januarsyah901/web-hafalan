@@ -97,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_hafalan'])) {
 
 } else {
     $_SESSION['error'] = "Permintaan tidak valid.";
+    echo "here";
     header("Location: ../index.php");
     exit;
 }
