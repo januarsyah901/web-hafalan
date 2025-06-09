@@ -20,7 +20,7 @@ global $totalSantri, $hafalanMingguIni, $ziyadahBulanIni, $murajaahBulanIni, $se
     <!-- Main Content -->
     <div class="container-fluid py-4">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
-            <h1 class="h3 mb-3 mb-md-0">Dashboard</h1>
+            <h1 class="h3 mb-3 mb-md-0">Dashboard Ustadz</h1>
             <div>
                 <a type="button" class="btn btn-success " data-bs-toggle="modal"
                         data-bs-target="#inputHafalanModal">
