@@ -109,11 +109,11 @@ include_once 'handler/AddSantriHandler.php' ?>
                                                value="aktif" required checked>
                                         <label class="form-check-label" for="aktif">Aktif</label>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="status" id="lulus"
-                                               value="lulus">
-                                        <label class="form-check-label" for="lulus">Lulus</label>
-                                    </div>
+<!--                                    <div class="form-check form-check-inline">-->
+<!--                                        <input class="form-check-input" type="radio" name="status" id="lulus"-->
+<!--                                               value="Lulus">-->
+<!--                                        <label class="form-check-label" for="lulus">Lulus</label>-->
+<!--                                    </div>-->
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="status" id="nonaktif"
                                                value="nonaktif">

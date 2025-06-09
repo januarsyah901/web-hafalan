@@ -107,9 +107,8 @@ include_once 'handler/editHafalanHandler.php';
 
             <div class="mb-3">
                 <label class="form-label">Catatan</label>
-                <textarea class="form-control" rows="3" disabled><?= htmlspecialchars($hafalan['catatan'] ?? '') ?></textarea>
+                <textarea class="form-control" rows="3" disabled><?= !empty($hafalan['catatan']) ? htmlspecialchars($hafalan['catatan']) : '' ?></textarea>
             </div>
-
             <div class="d-flex justify-content-end">
                 <a href="editHafalan.php?id=<?= $hafalan['id'] ?>" class="btn btn-primary">
                     <i class="fas fa-edit me-1"></i> Edit

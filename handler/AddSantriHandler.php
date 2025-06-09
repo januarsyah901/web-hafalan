@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($status)) {
         $errors[] = "Status tidak boleh kosong";
-    } elseif (!in_array($status, ['Aktif', 'Tidak Aktif', 'Alumni'])) {
+    } elseif (!in_array($status, ['aktif', 'nonaktif'])) {
         $errors[] = "Status tidak valid";
     }
 

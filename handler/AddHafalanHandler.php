@@ -64,6 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     VALUES (?, ?, ?, ?, ?, NOW(), 0)
                 ");
                 $stmt->execute([$santri_id, $jenis_hafalan, $surah_id, $ayat, $catatan]);
+
+                // Kosongkan $_POST setelah data berhasil disimpan
+                $_POST = [];
                 $success_message = "Data hafalan berhasil disimpan!";
             }
 

@@ -1,8 +1,11 @@
--- Create database projectuas2
-create database projectuas2;
+# create user and grant access
+CREATE USER 'u985354573_Bangjan114'@'localhost' IDENTIFIED BY 'Bangjan114';
 
--- Use database projectuas2
-use projectuas2;
+GRANT ALL PRIVILEGES ON *.* TO 'u985354573_Bangjan114'@'localhost' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+use u985354573_hafalanyuk;
 
 -- show current database
 SELECT DATABASE();
@@ -316,7 +319,11 @@ WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1);
 
 # delete semua data dari semua  table
 DELETE
-FROM setoran;
+FROM setoran
+where santri_id = 46;
+
+select *
+from santri where nama like '%janu%';
 DELETE
 FROM santri
 WHERE nama LIKE '%vian%';

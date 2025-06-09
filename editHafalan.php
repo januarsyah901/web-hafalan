@@ -110,8 +110,7 @@ include_once 'handler/editHafalanHandler.php';
 
             <div class="mb-3">
                 <label for="catatan" class="form-label">Catatan</label>
-                <textarea class="form-control" id="catatan" name="catatan"
-                          rows="3"><?= htmlspecialchars($hafalan['catatan']) ?? '' ?></textarea>
+                <textarea class="form-control" name="catatan" rows="3"><?= !empty($hafalan['catatan']) ? htmlspecialchars($hafalan['catatan']) : '' ?></textarea>
             </div>
 
             <div class="d-flex justify-content-end">
@@ -125,6 +124,5 @@ include_once 'handler/editHafalanHandler.php';
             </div>
         </form>
     </div>
-
 
 <?php include_once 'partials/layouts/footer.php' ?>
