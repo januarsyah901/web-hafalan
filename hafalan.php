@@ -1,6 +1,6 @@
 <?php
 global $setoranTerbaru;
-require_once 'handler/HafalanHandler.php';
+require_once __DIR__ . '/handler/HafalanHandler.php';
 ?>
     <!-- include header -->
 <?php include_once 'partials/layouts/header.php' ?>

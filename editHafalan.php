@@ -1,6 +1,6 @@
 <?php
 global $pdo, $hafalan;
-include_once 'handler/showHafalanHandler.php';
+include_once 'handler/ShowHafalanHandler.php';
 ?>
 
 <?php include_once 'partials/layouts/header.php' ?>
@@ -22,7 +22,7 @@ include_once 'handler/showHafalanHandler.php';
             </div>
         <?php endif; ?>
 
-        <form method="post" action="handler/editHafalanHandler.php" id="formEditHafalan">
+        <form method="post" action="handler/EditHafalanHandler.php" id="formEditHafalan">
             <input type="hidden" name="id" value="<?= $hafalan['id'] ?>">
 
             <div class="row mb-3">

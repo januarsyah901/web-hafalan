@@ -1,7 +1,7 @@
 <?php
 global $pdo;
-require_once 'env/config.php';
-require_once 'handler/AuthGuardHandler.php';
+require_once __DIR__ . '/../env/config.php';
+require_once __DIR__ . '/../handler/AuthGuardHandler.php';
 
 // Fetch kelas data untuk dropdown
 $stmt = $pdo->query("SELECT id, nama_kelas FROM kelas");

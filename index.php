@@ -1,7 +1,7 @@
 <?php
 // include DashboardHandler.php
-require_once 'handler/DashboardHandler.php';
-require_once 'handler/AuthGuardHandler.php';
+require_once __DIR__ . '/handler/DashboardHandler.php';
+require_once __DIR__ . '/handler/AuthGuardHandler.php';
 
 // Include addHafalan.php at the beginning to handle headers properly
 include_once 'addHafalan.php';

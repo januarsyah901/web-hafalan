@@ -3,7 +3,6 @@ global $pdo;
 require_once __DIR__ . '/../env/config.php';
 require_once __DIR__ . '/../handler/AuthGuardHandler.php';
 require_once __DIR__ . '/../handler/DashboardHandler.php';
-require_once __DIR__ . '/../handler/DeleteHafalanHandler.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['error'] = 'Metode request tidak valid';

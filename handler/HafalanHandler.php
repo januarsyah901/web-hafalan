@@ -1,7 +1,7 @@
 <?php
 global $pdo;
 require_once __DIR__ . '/../env/config.php';
-require_once 'handler/AuthGuardHandler.php';
+require_once __DIR__ . '/../handler/AuthGuardHandler.php';
 
 // Pagination
 $limit = 20; // data per halaman

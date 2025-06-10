@@ -1,6 +1,6 @@
 <?php
 global $pdo;
-include_once 'handler/showHafalanHandler.php';
+include_once 'handler/ShowHafalanHandler.php';
 ?>
 
 <?php include_once 'partials/layouts/header.php' ?>

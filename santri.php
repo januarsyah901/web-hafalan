@@ -1,6 +1,6 @@
 <?php
 global $pdo;
-require_once 'handler/SantriHandler.php'
+require_once __DIR__ . '/handler/SantriHandler.php'
 ?>
     <!-- include header -->
 <?php include_once 'partials/layouts/header.php' ?>

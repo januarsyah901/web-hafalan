@@ -1,5 +1,5 @@
 <?php global $santri, $surah;
-include_once 'handler/AddHafalanHandler.php'?>
+include_once 'handler/AddHafalanHandler.php' ?>
 <!-- Modal Input Hafalan -->
 <div class="modal fade" id="inputHafalanModal" tabindex="-1" aria-labelledby="inputHafalanModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
