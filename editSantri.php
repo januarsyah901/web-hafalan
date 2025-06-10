@@ -146,7 +146,7 @@ require_once __DIR__ . '/handler/ShowSantriHandler.php';
                                 <button type="submit" class="btn btn-primary me-2">
                                     <i class="fas fa-save me-1"></i> Simpan Perubahan
                                 </button>
-                                <a href="showSantri.php?id=<?= htmlspecialchars($santri['id']) ?>" class="btn btn-outline-secondary">
+                                <a href="showSantri.php?santri_id=<?= htmlspecialchars($santri['id']) ?>" class="btn btn-outline-secondary">
                                     <i class="fas fa-times me-1"></i> Batal
                                 </a>
                             </div>
