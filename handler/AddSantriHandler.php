@@ -114,6 +114,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Bersihkan input setelah berhasil
                 $_POST = [];
+
+                // Redirect
+                header('Location: ../index.php');
             }
 
         } catch (PDOException $e) {

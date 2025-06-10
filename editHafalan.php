@@ -19,7 +19,7 @@ include_once 'handler/ShowHafalanHandler.php'; // Asumsi file ini mengambil data
         <div class="card shadow-sm border-primary">
             <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                 <h4 class="mb-0">Form Edit Hafalan</h4>
-                <a href="santri.php" class="btn btn-sm btn-outline-light">
+                <a href="index.php" class="btn btn-sm btn-outline-light">
                     <i class="fas fa-arrow-left me-1"></i> Kembali
                 </a>
             </div>
