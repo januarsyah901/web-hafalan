@@ -17,8 +17,8 @@ function tampilkanSantriRow($s): void
     echo "<td>" . htmlspecialchars($s['status']) . "</td>";
     // Aksi
     echo "<td>";
-    echo '<a href="editHafalan.php?id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-edit"></i></a>';
-    echo '<a href="showHafalan.php?id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-secondary me-1"><i class="fas fa-eye"></i> </a>';
+    echo '<a href="editSantri.php?santri_id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-edit"></i></a>';
+    echo '<a href="showSantri.php?santri_id=' . $s['id'] . '" type="button" class="btn btn-sm btn-outline-secondary me-1"><i class="fas fa-eye"></i> </a>';
     echo "</td>";
     echo "</tr>";
 }

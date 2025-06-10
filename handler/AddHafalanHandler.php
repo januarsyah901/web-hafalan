@@ -53,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (strlen($catatan) > 255) {
                 $errors[] = "Catatan tidak boleh lebih dari 255 karakter";
             }
-//            var_dump($errors);
 
             // Jika tidak ada error, lanjutkan ke penyimpanan data
             if (empty($errors)) {

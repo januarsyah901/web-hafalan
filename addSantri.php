@@ -67,7 +67,7 @@ include_once 'handler/AddSantriHandler.php' ?>
                                             class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <select class="form-select" id="kelas" name="kelas_id" required>
-                                        <option value="" selected disabled>-- Pilih Kelas --</option>
+                                        <option value="" selected >-- Pilih Kelas --</option>
                                         <?php foreach ($kelasOptions as $kelas): ?>
                                             <option value="<?php echo $kelas['id']; ?>"><?php echo htmlspecialchars($kelas['nama_kelas']); ?></option>
                                         <?php endforeach; ?>
@@ -127,11 +127,11 @@ include_once 'handler/AddSantriHandler.php' ?>
                                     <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="foto" class="form-label">Foto Santri</label>
-                                <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg,image/png,image/jpg">
-                                <div class="form-text">Upload foto santri (Max: 2MB, Format: JPG, JPEG, PNG)</div>
-                            </div>
+<!--                            <div class="mb-3">-->
+<!--                                <label for="foto" class="form-label">Foto Santri</label>-->
+<!--                                <input type="file" class="form-control" id="foto" name="foto" accept="image/jpeg,image/png,image/jpg">-->
+<!--                                <div class="form-text">Upload foto santri (Max: 2MB, Format: JPG, JPEG, PNG)</div>-->
+<!--                            </div>-->
                             <div class="row">
                                 <div class="col-sm-9 offset-sm-3">
                                     <button type="submit" class="btn btn-primary">

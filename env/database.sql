@@ -7,6 +7,7 @@ FLUSH PRIVILEGES;
 
 use u985354573_hafalanyuk;
 
+
 -- show current database
 SELECT DATABASE();
 
@@ -298,6 +299,7 @@ VALUES
 
 
 -- Query
+# detail hafalan
 SELECT s.tanggal,
        san.nama       AS nama_santri,
        k.nama_kelas   AS kelas,
@@ -311,6 +313,24 @@ FROM setoran s
          JOIN kelas k ON san.kelas_id = k.id
          JOIN surah sur ON s.surah_id = sur.id
 ORDER BY s.tanggal DESC;
+
+# detail santri
+SELECT san.id,
+       san.nama,
+       san.tempat_lahir,
+       san.tanggal_lahir,
+       san.jenis_kelamin,
+       k.nama_kelas,
+       san.alamat,
+       san.nama_ortu,
+       san.no_telp,
+       san.tanggal_masuk,
+       san.status,
+       san.catatan
+FROM santri san
+         JOIN kelas k ON san.kelas_id = k.id
+ORDER BY san.nama;
+
 
 SELECT COUNT(*) AS hafalan_minggu_ini
 FROM setoran
