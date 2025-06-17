@@ -79,18 +79,6 @@ function initSearchableDropdown(type) {
     });
 }
 
-function showSelected() {
-    const santriValue = document.getElementById('santriValue').value;
-    const surahValue = document.getElementById('surahValue').value;
-    const santriText = document.getElementById('selectedSantriDisplay').value;
-    const surahText = document.getElementById('selectedSurahDisplay').value;
-
-    if (santriValue && surahValue) {
-        alert(`Pilihan Anda:\nSantri: ${santriText} (ID: ${santriValue})\nSurah: ${surahText} (ID: ${surahValue})`);
-    } else {
-        alert('Silakan pilih santri dan surah terlebih dahulu!');
-    }
-}
 
 
 

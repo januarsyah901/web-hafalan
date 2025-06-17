@@ -26,7 +26,6 @@ function tampilkanSantriRow($s): void
 if (isset($_GET['search']) && trim($_GET['search']) !== '') {
     $search = $_GET['search'];
 
-    // Query pencarian
     $query = "
         SELECT s.*, k.nama_kelas FROM santri s JOIN kelas AS k ON s.kelas_id = k.id 
         WHERE s.nama LIKE :search

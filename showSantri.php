@@ -1,4 +1,5 @@
 <?php
+global $santri;
 require_once __DIR__ . '/handler/ShowSantriHandler.php';
 ?>
 <?php include_once 'partials/layouts/header.php'?>

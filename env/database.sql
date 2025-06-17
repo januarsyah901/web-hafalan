@@ -299,7 +299,7 @@ VALUES
 
 
 -- Query
-# detail hafalan
+# memorization_details
 SELECT s.tanggal,
        san.nama       AS nama_santri,
        k.nama_kelas   AS kelas,
@@ -314,7 +314,7 @@ FROM setoran s
          JOIN surah sur ON s.surah_id = sur.id
 ORDER BY s.tanggal DESC;
 
-# detail santri
+# santri_details
 SELECT san.id,
        san.nama,
        san.tempat_lahir,
@@ -336,7 +336,7 @@ SELECT COUNT(*) AS hafalan_minggu_ini
 FROM setoran
 WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1);
 
-# delete semua data dari semua  table
+# delete_all_data_from_all_tables
 DELETE
 FROM setoran
 where santri_id = 46;
@@ -353,7 +353,7 @@ FROM surah;
 DELETE
 FROM ustadz;
 
-# drop semua table
+# drop_all_tables
 DROP TABLE IF EXISTS setoran;
 DROP TABLE IF EXISTS santri;
 DROP TABLE IF EXISTS kelas;
