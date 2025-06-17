@@ -314,6 +314,8 @@ FROM setoran s
          JOIN surah sur ON s.surah_id = sur.id
 ORDER BY s.tanggal DESC;
 
+# penjelasan :  queri di atas mengambil data setoran hafalan santri, termasuk tanggal setoran, nama santri, kelas, nama surah, ayat yang dihafal, jenis setoran (Ziyadah atau Murajaah), skor yang diperoleh, dan status setoran. Data diurutkan berdasarkan tanggal setoran terbaru.
+
 # detail_santri
 SELECT san.id,
        san.nama,
@@ -331,10 +333,15 @@ FROM santri san
          JOIN kelas k ON san.kelas_id = k.id
 ORDER BY san.nama;
 
+# penjelasan :  queri di atas mengambil data detail santri, termasuk ID, nama, tempat lahir, tanggal lahir, jenis kelamin, nama kelas, alamat, nama orang tua, nomor telepon, tanggal masuk, status santri (aktif/nonaktif), dan catatan. Data diurutkan berdasarkan nama santri.
+
+
 
 SELECT COUNT(*) AS hafalan_minggu_ini
 FROM setoran
 WHERE YEARWEEK(tanggal, 1) = YEARWEEK(CURDATE(), 1);
+
+# penjelasan :  queri di atas menghitung jumlah hafalan yang dilakukan oleh santri dalam minggu ini. Fungsi YEARWEEK digunakan untuk mendapatkan minggu dari tanggal setoran, dan CURDATE() memberikan tanggal saat ini. Hasilnya adalah jumlah hafalan yang dilakukan dalam minggu ini.
 
 # drop_all_tables
 DROP TABLE IF EXISTS setoran;
