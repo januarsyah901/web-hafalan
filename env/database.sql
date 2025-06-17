@@ -64,7 +64,6 @@ CREATE TABLE setoran
     FOREIGN KEY (santri_id) REFERENCES santri (id),
     FOREIGN KEY (surah_id) REFERENCES surah (id)
 );
-# menambahkan kolom catatan di setoran
 
 -- Data ustadz
 INSERT INTO ustadz (nama, username, password)
