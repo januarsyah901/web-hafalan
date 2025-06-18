@@ -23,7 +23,7 @@ include_once 'handler/LoginHandler.php';
                     </div>
                     <div class="card-body p-4">
                         <div class="text-center mb-4">
-                            <h3 class="fs-5">Login ML</h3>
+                            <h3 class="fs-5">Login Ustadz</h3>
                             <p class="text-muted small">Silakan masukkan username dan password Anda</p>
                         </div>
                         <form id="loginForm" method="post">
